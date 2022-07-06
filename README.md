@@ -7,7 +7,7 @@ on: [push, pull_request]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: Windows
 
     strategy:
       matrix:
@@ -29,10 +29,7 @@ jobs:
 
     - name: Run tests
       run: npm run test
-
- #   - name: Upload coverage to Codecov
- #     uses: codecov/codecov-action@v1
-      
+    
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
       with:
