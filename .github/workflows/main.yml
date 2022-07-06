@@ -28,15 +28,8 @@ jobs:
     - name: Run tests
       run: npm run test
 
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v3
+    - name: Upload coverage results to Codecov.io
+      uses: codecov/codecov-action@v2
       with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        directory: ./coverage/lcov-report/
-        env_vars: OS,PYTHON
-        fail_ci_if_error: true
-        files: ./index.html
-        flags: unittests
-        name: codecov-umbrella
-        path_to_write_report: ./coverage/lcov-report/
-        verbose: true
+        token: ${{secrets.CODECOV_TOKEN}}
+        version: "v0.1.15"
