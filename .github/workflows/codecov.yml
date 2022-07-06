@@ -5,11 +5,11 @@ on: [push, pull_request]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows
 
     strategy:
       matrix:
-        node-version: [12.x, 13.x, 14.x, 15.x]
+        node-version: 8.11.0
 
     steps:
     - name: Checkout repository
