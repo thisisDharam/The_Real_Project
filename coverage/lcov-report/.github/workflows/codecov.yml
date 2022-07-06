@@ -30,3 +30,7 @@ jobs:
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
+
+$ProgressPreference = 'SilentlyContinue'
+Invoke-WebRequest -Uri https://uploader.codecov.io/latest/windows/codecov.exe -Outfile codecov.exe
+.\codecov.exe
