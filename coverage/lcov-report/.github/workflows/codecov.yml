@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows
 
     strategy:
       matrix:
@@ -29,8 +29,14 @@ jobs:
       run: npm run test
 
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
-
-$ProgressPreference = 'SilentlyContinue'
-Invoke-WebRequest -Uri https://uploader.codecov.io/latest/windows/codecov.exe -Outfile codecov.exe
-.\codecov.exe
+      uses: codecov/codecov-action@v3
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        directory: ./coverage/lcov-report/
+        env_vars: OS,PYTHON
+        fail_ci_if_error: true
+        files: ./index.html
+        flags: unittests
+        name: codecov-umbrella
+        path_to_write_report: ./coverage/lcov-report/
+        verbose: true
