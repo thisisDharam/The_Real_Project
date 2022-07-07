@@ -27,9 +27,8 @@ jobs:
 
     - name: Run tests
       run: npm run test
-
-    - name: Upload coverage results to Codecov.io
-      uses: codecov/codecov-action@v2
+    
+    - name: Publish Coverage Report
+      uses: romeovs/lcov-reporter-action@v0.2.16
       with:
-        token: ${{secrets.CODECOV_TOKEN}}
-        version: "v0.1.15"
+         lcov-file: ./coverage/lcov.info
