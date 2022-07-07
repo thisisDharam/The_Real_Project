@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 13.x, 14.x, 15.x]
+        node-version: [13.x, 14.x]
 
     steps:
     - name: Checkout repository
@@ -28,7 +28,7 @@ jobs:
     - name: Run tests
       run: npm run test
     
-  #  - name: Publish Coverage Report
-  #    uses: romeovs/lcov-reporter-action@v0.2.16
-   #   with:
-   #      lcov-file: ./coverage/lcov.info
+    - name: Publish Coverage Report
+      uses: romeovs/lcov-reporter-action@v0.2.16
+      with:
+         lcov-file: ./coverage/lcov.info
