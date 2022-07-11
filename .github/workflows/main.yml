@@ -28,21 +28,9 @@ jobs:
     - name: Run tests
       run: npm run test
       
-    - name: Archive production artifacts
-      uses: actions/upload-artifact@v3
-      with:
-          name: dist-without-markdown
-          path: |
-            dist
-            !module3/target/site/jacoco-aggregate/jacoco.csv
+				
     
-    - name: Publish Coverage Report
-      uses: romeovs/lcov-reporter-action@v0.2.19
-      with:
-        lcov-file: ./coverage/lcov.info
-       # pr-number: ${{ env.pr_number }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-  
+
 
     
 
