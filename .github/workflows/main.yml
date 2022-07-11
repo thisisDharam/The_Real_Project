@@ -34,7 +34,7 @@ jobs:
           name: dist-without-markdown
           path: |
             dist
-            !dist/**/*.md
+            !module3/target/site/jacoco-aggregate/jacoco.csv
     
     - name: Publish Coverage Report
       uses: romeovs/lcov-reporter-action@v0.2.19
